@@ -1,0 +1,591 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+DROP SCHEMA IF EXISTS `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`WorkStatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`WorkStatus` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`WorkStatus` (
+  `workStatus` VARCHAR(24) NOT NULL ,
+  PRIMARY KEY (`workStatus`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Country`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Country` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Country` (
+  `country` VARCHAR(64) NOT NULL ,
+  PRIMARY KEY (`country`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`MaritalStatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`MaritalStatus` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`MaritalStatus` (
+  `maritalStatus` VARCHAR(16) NOT NULL ,
+  PRIMARY KEY (`maritalStatus`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`IncomeType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`IncomeType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`IncomeType` (
+  `incomeType` VARCHAR(64) NOT NULL ,
+  `conversionRate` VARCHAR(45) NULL ,
+  PRIMARY KEY (`incomeType`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Client`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Client` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Client` (
+  `ID` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `firstName` VARCHAR(128) NOT NULL ,
+  `lastName` VARCHAR(128) NOT NULL ,
+  `DoB` DATE NULL ,
+  `gender` CHAR NULL ,
+  `medicare` VARCHAR(45) NULL ,
+  `workStatus` VARCHAR(24) NULL ,
+  `countryOfOrigin` VARCHAR(45) NULL ,
+  `maritalStatus` VARCHAR(16) NULL ,
+  `incomeType` VARCHAR(64) NULL ,
+  `languageSpoken` CHAR(2) NULL ,
+  `dateRegistered` DATE NULL ,
+  `contact` VARCHAR(128) NULL ,
+  `region` VARCHAR(64) NULL ,
+  `reasonForServiceUsage` VARCHAR(256) NULL ,
+  PRIMARY KEY (`ID`) ,
+  INDEX `fk_Client_WorkStatus1` (`workStatus` ASC) ,
+  INDEX `fk_Client_Country1` (`countryOfOrigin` ASC) ,
+  INDEX `fk_Client_MaritalStatus1` (`maritalStatus` ASC) ,
+  INDEX `fk_Client_IncomeType1` (`incomeType` ASC) ,
+  CONSTRAINT `fk_Client_WorkStatus1`
+    FOREIGN KEY (`workStatus` )
+    REFERENCES `mydb`.`WorkStatus` (`workStatus` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Client_Country1`
+    FOREIGN KEY (`countryOfOrigin` )
+    REFERENCES `mydb`.`Country` (`country` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Client_MaritalStatus1`
+    FOREIGN KEY (`maritalStatus` )
+    REFERENCES `mydb`.`MaritalStatus` (`maritalStatus` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Client_IncomeType1`
+    FOREIGN KEY (`incomeType` )
+    REFERENCES `mydb`.`IncomeType` (`incomeType` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`FlagType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`FlagType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`FlagType` (
+  `type` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`type`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Flag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Flag` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Flag` (
+  `ID` INT NOT NULL AUTO_INCREMENT ,
+  `desc` VARCHAR(256) NOT NULL ,
+  `type` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`ID`) ,
+  INDEX `fk_Flag_FlagType1` (`type` ASC) ,
+  UNIQUE INDEX `desc_UNIQUE` (`desc` ASC) ,
+  CONSTRAINT `fk_Flag_FlagType1`
+    FOREIGN KEY (`type` )
+    REFERENCES `mydb`.`FlagType` (`type` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Household`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Household` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Household` (
+  `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `address` VARCHAR(256) NOT NULL ,
+  `appartmentNumber` VARCHAR(5) NULL ,
+  `postalCode` CHAR(6) NOT NULL ,
+  `dateRegistered` DATE NOT NULL ,
+  `dateRenewed` DATE NOT NULL ,
+  PRIMARY KEY (`ID`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`HouseholdFlag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`HouseholdFlag` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`HouseholdFlag` (
+  `householdID` INT UNSIGNED NOT NULL ,
+  `flagID` INT NOT NULL ,
+  `dateSet` DATETIME NULL ,
+  PRIMARY KEY (`householdID`, `flagID`) ,
+  INDEX `fk_ClientFlag_Flag` (`flagID` ASC) ,
+  INDEX `fk_HouseholdFlag_Household1` (`householdID` ASC) ,
+  CONSTRAINT `fk_ClientFlag_Flag`
+    FOREIGN KEY (`flagID` )
+    REFERENCES `mydb`.`Flag` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_HouseholdFlag_Household1`
+    FOREIGN KEY (`householdID` )
+    REFERENCES `mydb`.`Household` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`FSA_Area`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`FSA_Area` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`FSA_Area` (
+  `FSA` CHAR(3) NOT NULL ,
+  `city` VARCHAR(128) NOT NULL ,
+  PRIMARY KEY (`FSA`, `city`) )
+ENGINE = InnoDB
+COMMENT = 'Forward Sortation Area (first three characters of postal cod' /* comment truncated */ ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`ClientReferral`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`ClientReferral` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`ClientReferral` (
+  `clientID` BIGINT UNSIGNED NOT NULL ,
+  `referredID` BIGINT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`clientID`, `referredID`) ,
+  INDEX `fk_Referral_Client1` (`clientID` ASC) ,
+  INDEX `fk_Referral_Client2` (`referredID` ASC) ,
+  CONSTRAINT `fk_Referral_Client1`
+    FOREIGN KEY (`clientID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Referral_Client2`
+    FOREIGN KEY (`referredID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Assumes a client is referred to the organization by another ' /* comment truncated */ ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`AccountType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`AccountType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`AccountType` (
+  `accountType` VARCHAR(32) NOT NULL ,
+  PRIMARY KEY (`accountType`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`User`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`User` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`User` (
+  `username` VARCHAR(64) NOT NULL ,
+  `password` VARCHAR(128) NOT NULL ,
+  `firstName` VARCHAR(128) NOT NULL ,
+  `lastName` VARCHAR(128) NOT NULL ,
+  `dateCreated` DATETIME NOT NULL ,
+  `lastLogin` DATETIME NOT NULL ,
+  `accountType` VARCHAR(32) NOT NULL ,
+  PRIMARY KEY (`username`) ,
+  CONSTRAINT `fk_User_AccountType1`
+    FOREIGN KEY (`accountType` )
+    REFERENCES `mydb`.`AccountType` (`accountType` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Event`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Event` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Event` (
+  `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(128) NOT NULL ,
+  `desc` VARCHAR(256) NULL ,
+  `dateCreated` DATETIME NOT NULL ,
+  `startDate` DATE NOT NULL ,
+  `endDate` DATE NOT NULL ,
+  `eventStatus` VARCHAR(16) NOT NULL ,
+  `eventRepeating` TINYINT(1)  NOT NULL ,
+  PRIMARY KEY (`ID`) ,
+  UNIQUE INDEX `endDate_UNIQUE` (`endDate` ASC) ,
+  UNIQUE INDEX `startDate_UNIQUE` (`startDate` ASC) ,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`EventBlock`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`EventBlock` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`EventBlock` (
+  `eventID` INT UNSIGNED NOT NULL ,
+  `date` DATE NOT NULL ,
+  `eventStartTime` TIME NOT NULL ,
+  `eventEndTime` TIME NOT NULL ,
+  `slots` INT NOT NULL ,
+  `eventBlockStatus` VARCHAR(16) NOT NULL ,
+  PRIMARY KEY (`eventID`, `date`, `eventStartTime`) ,
+  INDEX `fk_Event_Date_Event1` (`eventID` ASC) ,
+  CONSTRAINT `fk_Event_Date_Event1`
+    FOREIGN KEY (`eventID` )
+    REFERENCES `mydb`.`Event` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Appointment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Appointment` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Appointment` (
+  `ID` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `eventID` INT UNSIGNED NOT NULL ,
+  `eventDate` DATE NOT NULL ,
+  `appointmentStartTime` TIME NOT NULL ,
+  `appointmentEndTime` TIME NOT NULL ,
+  PRIMARY KEY (`ID`) ,
+  INDEX `fk_Appointment_Event_Date1` (`eventID` ASC, `eventDate` ASC) ,
+  CONSTRAINT `fk_Appointment_Event_Date1`
+    FOREIGN KEY (`eventID` , `eventDate` )
+    REFERENCES `mydb`.`EventBlock` (`eventID` , `date` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'For household events, the event simply registers under the h' /* comment truncated */ ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`HouseholdOwnerRelation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`HouseholdOwnerRelation` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`HouseholdOwnerRelation` (
+  `relation` VARCHAR(45) NOT NULL ,
+  `id` BIGINT NOT NULL AUTO_INCREMENT ,
+  `Client_ID` BIGINT UNSIGNED NOT NULL ,
+  `Household_ID` INT UNSIGNED NOT NULL ,
+  `active` TINYINT(1)  NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_HouseholdOwnerRelation_Client1` (`Client_ID` ASC) ,
+  INDEX `fk_HouseholdOwnerRelation_Household1` (`Household_ID` ASC) ,
+  CONSTRAINT `fk_HouseholdOwnerRelation_Client1`
+    FOREIGN KEY (`Client_ID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_HouseholdOwnerRelation_Household1`
+    FOREIGN KEY (`Household_ID` )
+    REFERENCES `mydb`.`Household` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Used for dropdowns' ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`DependencyStatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`DependencyStatus` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`DependencyStatus` (
+  `status` VARCHAR(32) NOT NULL ,
+  `HouseholdOwnerRelation_id` BIGINT NOT NULL ,
+  `id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_DependencyStatus_HouseholdOwnerRelation1` (`HouseholdOwnerRelation_id` ASC) ,
+  CONSTRAINT `fk_DependencyStatus_HouseholdOwnerRelation1`
+    FOREIGN KEY (`HouseholdOwnerRelation_id` )
+    REFERENCES `mydb`.`HouseholdOwnerRelation` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`ClientRelation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`ClientRelation` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`ClientRelation` (
+  `relation` VARCHAR(32) NOT NULL ,
+  PRIMARY KEY (`relation`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`PriorityLevel`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`PriorityLevel` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`PriorityLevel` (
+  `priority` VARCHAR(64) NOT NULL ,
+  PRIMARY KEY (`priority`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`WaitingList`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`WaitingList` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`WaitingList` (
+  `eventID` INT UNSIGNED NOT NULL ,
+  `clientID` BIGINT UNSIGNED NOT NULL ,
+  `dateRegistered` DATETIME NOT NULL ,
+  `priority` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`eventID`, `clientID`) ,
+  INDEX `fk_WaitingList_Client1` (`clientID` ASC) ,
+  INDEX `fk_WaitingList_table11` (`priority` ASC) ,
+  CONSTRAINT `fk_WaitingList_Event1`
+    FOREIGN KEY (`eventID` )
+    REFERENCES `mydb`.`Event` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_WaitingList_Client1`
+    FOREIGN KEY (`clientID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_WaitingList_table11`
+    FOREIGN KEY (`priority` )
+    REFERENCES `mydb`.`PriorityLevel` (`priority` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`IncomeType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`IncomeType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`IncomeType` (
+  `incomeType` VARCHAR(64) NOT NULL ,
+  `conversionRate` VARCHAR(45) NULL ,
+  PRIMARY KEY (`incomeType`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Client_IncomeType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Client_IncomeType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Client_IncomeType` (
+  `Client_ID` BIGINT UNSIGNED NOT NULL ,
+  `incomeType` VARCHAR(64) NOT NULL ,
+  `amount` DECIMAL(10,2)  NULL ,
+  `desc` VARCHAR(64) NULL ,
+  PRIMARY KEY (`Client_ID`) ,
+  INDEX `fk_Client_IncomeType_IncomeType1` (`incomeType` ASC) ,
+  CONSTRAINT `fk_Client_IncomeType_Client1`
+    FOREIGN KEY (`Client_ID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Client_IncomeType_IncomeType1`
+    FOREIGN KEY (`incomeType` )
+    REFERENCES `mydb`.`IncomeType` (`incomeType` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`NoteType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`NoteType` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`NoteType` (
+  `type` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`type`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`HouseholdNotes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`HouseholdNotes` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`HouseholdNotes` (
+  `householdID` INT UNSIGNED NOT NULL ,
+  `userID` VARCHAR(64) NOT NULL ,
+  `dateSet` DATETIME NOT NULL ,
+  `note` VARCHAR(512) NOT NULL ,
+  `noteType` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`householdID`, `userID`, `dateSet`) ,
+  INDEX `fk_table1_User1` (`userID` ASC) ,
+  INDEX `fk_ClientNotes_NoteType1` (`noteType` ASC) ,
+  INDEX `fk_HouseholdNotes_Household1` (`householdID` ASC) ,
+  CONSTRAINT `fk_table1_User1`
+    FOREIGN KEY (`userID` )
+    REFERENCES `mydb`.`User` (`username` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ClientNotes_NoteType1`
+    FOREIGN KEY (`noteType` )
+    REFERENCES `mydb`.`NoteType` (`type` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_HouseholdNotes_Household1`
+    FOREIGN KEY (`householdID` )
+    REFERENCES `mydb`.`Household` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`ReasonsForServices`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`ReasonsForServices` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`ReasonsForServices` (
+  `DefaultReasonsForServices` VARCHAR(256) NOT NULL ,
+  PRIMARY KEY (`DefaultReasonsForServices`) )
+ENGINE = InnoDB, 
+COMMENT = 'Specifications state that there should be a default list of ' /* comment truncated */ ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Appointment_Client`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Appointment_Client` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`Appointment_Client` (
+  `appointmentID` BIGINT UNSIGNED NOT NULL ,
+  `Client_ID` BIGINT UNSIGNED NOT NULL ,
+  `attended` TINYINT(1)  NOT NULL DEFAULT 0 ,
+  PRIMARY KEY (`appointmentID`, `Client_ID`) ,
+  INDEX `fk_Appointment_Client_Client1` (`Client_ID` ASC) ,
+  CONSTRAINT `fk_Appointment_Client_Appointment1`
+    FOREIGN KEY (`appointmentID` )
+    REFERENCES `mydb`.`Appointment` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Appointment_Client_Client1`
+    FOREIGN KEY (`Client_ID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`HouseholdOwnerRelation_has_Client`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`HouseholdOwnerRelation_has_Client` ;
+
+CREATE  TABLE IF NOT EXISTS `mydb`.`HouseholdOwnerRelation_has_Client` (
+  `HouseholdOwnerRelation_id` BIGINT NOT NULL ,
+  `Client_ID` BIGINT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`HouseholdOwnerRelation_id`, `Client_ID`) ,
+  INDEX `fk_HouseholdOwnerRelation_has_Client_Client1` (`Client_ID` ASC) ,
+  INDEX `fk_HouseholdOwnerRelation_has_Client_HouseholdOwnerRelation1` (`HouseholdOwnerRelation_id` ASC) ,
+  CONSTRAINT `fk_HouseholdOwnerRelation_has_Client_HouseholdOwnerRelation1`
+    FOREIGN KEY (`HouseholdOwnerRelation_id` )
+    REFERENCES `mydb`.`HouseholdOwnerRelation` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_HouseholdOwnerRelation_has_Client_Client1`
+    FOREIGN KEY (`Client_ID` )
+    REFERENCES `mydb`.`Client` (`ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+use mydb;
+
+
+insert into Client  (firstName, lastName, DoB, gender, medicare, languageSpoken, dateRegistered, contact, region,
+reasonForServiceUsage) values ("ivlev", "jenia", "06 16 1986", "m", "161686ivlev",  "english", "07 01 2009", "5144823778", "montreal", "broke");
+
+insert into Client  (firstName, lastName, DoB, gender, medicare,  languageSpoken, dateRegistered, contact, region,
+reasonForServiceUsage) values ("ivlev", "sergey", "09 07 1981", "m", "090781ivlev",  "french", "07 01 2012", "5144823778", "montreal", "broke");
+
+
+
+
+insert into Household (address, appartmentNumber, postalCode, dateRegistered, dateRenewed) values
+("5120 edouard montpetit", "16", "h3w1r2", "07 01 2009", "07 01 2009");
+
+insert into Household (address, appartmentNumber, postalCode, dateRegistered, dateRenewed) values
+("4851 cote-st-luc road", "406", "h3w2h6", "07 01 2012", "07 01 2012");
+
+
+
+
+insert into HouseholdOwnerRelation(relation, Client_ID, Household_ID) values 
+("owner", 1,2);
+
+insert into HouseholdOwnerRelation(relation, Client_ID, Household_ID) values 
+("owner", 2,1);
+
+
+
+
+
+
+
+
+

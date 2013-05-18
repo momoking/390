@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4cee0df3259a415786852f6bb9f1d29c" Name="Diagram1">
+        <EntityTypeShape EntityType="soen390Model.citizenship" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.client" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.dependant" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.event" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.eventtemplate" Width="1.5" PointX="5.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.flag" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.flagtype" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.gender" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.household" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.incometype" Width="1.5" PointX="2.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.maritalstatus" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.mothertongue" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.note" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.origin" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.region" Width="1.5" PointX="10.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.servicelanguage" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.slot" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.slottemplate" Width="1.5" PointX="8" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="soen390Model.workstatus" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="soen390Model.fk_Client_Citizenship1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Client_MaritalStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Client_MotherTongue1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Client_Origin1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Client_ServiceLanguage1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Client_WorkStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Dependant_WorkStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.fk_Flag_FlagType1" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.client_dependant" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.client_household" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.event_slot" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.eventtemplate_slottemplate" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.household_flag" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.household_note" ManuallyRouted="false" />
+        <AssociationConnector Association="soen390Model.slot_household" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

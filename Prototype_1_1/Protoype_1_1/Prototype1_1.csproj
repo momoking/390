@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{197496F2-0C05-4693-B4A4-91C9593B11DF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prototype1_1</RootNamespace>
+    <AssemblyName>Prototype1_1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>G:\390\db\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>G:\390\db\MySql.Data.Entity.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>G:\390\db\MySql.Web.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Windows.Forms.Calendar">
+      <HintPath>..\..\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AppointmentModel\AppointmentAPI.cs" />
+    <Compile Include="Data\AppointmentModel\AppointmentCRUD.cs" />
+    <Compile Include="Data\citizenship.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\client.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ClientModel\ClientAPI.cs" />
+    <Compile Include="Data\ClientModel\ClientCRUD.cs" />
+    <Compile Include="Data\dependant.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DependantModel\DependantAPI.cs" />
+    <Compile Include="Data\DependantModel\DependantCRUD.cs" />
+    <Compile Include="Data\EntityModel\EntityModel.cs" />
+    <Compile Include="Data\event.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eventtemplate.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\flag.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FlagModel\FlagAPI.cs" />
+    <Compile Include="Data\FlagModel\FlagCRUD.cs" />
+    <Compile Include="Data\flagtype.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\gender.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\household.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HouseholdModel\HouseholdAPI.cs" />
+    <Compile Include="Data\HouseholdModel\HouseholdCRUD.cs" />
+    <Compile Include="Data\incometype.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\maritalstatus.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\mothertongue.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\note.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NoteModel\NoteAPI.cs" />
+    <Compile Include="Data\NoteModel\NoteCRUD.cs" />
+    <Compile Include="Data\origin.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\region.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReportModel\ReportAPI.cs" />
+    <Compile Include="Data\servicelanguage.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SettingModel\SettingAPI.cs" />
+    <Compile Include="Data\SettingModel\SettingCRUD.cs" />
+    <Compile Include="Data\slot.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\slottemplate.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\soen390EntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>soen390EntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\soen390EntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\soen390EntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>soen390EntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\workstatus.cs">
+      <DependentUpon>soen390EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\EventsTab\CreateEventPresenter.cs" />
+    <Compile Include="Presenters\EventsTab\EventsPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Appointment\AppointmentInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Appointment\CreateAppointmentInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Dependant\CreateDependantInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Dependant\DependantInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Dependant\UpdateDependantInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Flag\CreateFlagInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Flag\FlagInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Flag\UpdateFlagInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\HouseholdAndClient\HouseholdAndClientPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\HouseholdTabPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Note\CreateNoteInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Note\NoteInfoPresenter.cs" />
+    <Compile Include="Presenters\HouseholdTab\Note\UpdateNoteInfoPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\SearchTab\SearchPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\AddEventTemplatePresenter.cs" />
+    <Compile Include="Presenters\SettingTab\AddSettingDuoPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\AddSettingPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\DeleteSettingDuoPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\DeleteSettingPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\EditSettingDuoPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\EditSettingPresenter.cs" />
+    <Compile Include="Presenters\SettingTab\SettingPresenter.cs" />
+    <Compile Include="Presenters\EventsTab\UpdateEventPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Forms\EventsTab\FormCreateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\EventsTab\FormCreateEvent.designer.cs">
+      <DependentUpon>FormCreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\EventsTab\FormUpdateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\EventsTab\FormUpdateEvent.designer.cs">
+      <DependentUpon>FormUpdateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Appointment\CreateAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Appointment\CreateAppointmentForm.Designer.cs">
+      <DependentUpon>CreateAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Appointment\UpdateAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Appointment\UpdateAppointmentForm.Designer.cs">
+      <DependentUpon>UpdateAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\UpdateClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\UpdateClientForm.Designer.cs">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\CreateClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\CreateClientForm.Designer.cs">
+      <DependentUpon>CreateClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Dependant\UpdateDependantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Dependant\UpdateDependantForm.Designer.cs">
+      <DependentUpon>UpdateDependantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Flag\CreateFlagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Flag\CreateFlagForm.Designer.cs">
+      <DependentUpon>CreateFlagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Flag\UpdateFlagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Flag\UpdateFlagForm.Designer.cs">
+      <DependentUpon>UpdateFlagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientForm.Designer.cs">
+      <DependentUpon>CreateHouseholdAndClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Dependant\CreateDependantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Dependant\CreateDependantForm.Designer.cs">
+      <DependentUpon>CreateDependantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientForm.Designer.cs">
+      <DependentUpon>UpdateHouseholdAndClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\UpdateHouseholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\UpdateHouseholdForm.Designer.cs">
+      <DependentUpon>UpdateHouseholdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\CreateHouseholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\CreateHouseholdForm.Designer.cs">
+      <DependentUpon>CreateHouseholdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Note\CreateNoteInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Note\CreateNoteInfoForm.Designer.cs">
+      <DependentUpon>CreateNoteInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Note\UpdateNoteInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Note\UpdateNoteInfoForm.Designer.cs">
+      <DependentUpon>UpdateNoteInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\FoodBasketReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\FoodBasketReportForm.Designer.cs">
+      <DependentUpon>FoodBasketReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\ReportDemographyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\ReportDemographyForm.Designer.cs">
+      <DependentUpon>ReportDemographyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\ReportFoodBasketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ReportTab\ReportFoodBasketForm.Designer.cs">
+      <DependentUpon>ReportFoodBasketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\AddEventTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\AddEventTemplateForm.Designer.cs">
+      <DependentUpon>AddEventTemplateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\SettingCRUDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\SettingCRUDForm.Designer.cs">
+      <DependentUpon>SettingCRUDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\SettingCRUDFormDuo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SettingTab\SettingCRUDFormDuo.Designer.cs">
+      <DependentUpon>SettingCRUDFormDuo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ImageAPI.cs" />
+    <Compile Include="UI\Views\EventsTab\EventsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\EventsTab\EventsView.designer.cs">
+      <DependentUpon>EventsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\AppointmentInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\AppointmentInfoView.Designer.cs">
+      <DependentUpon>AppointmentInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\CreateAppointmentInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\CreateAppointmentInfoView.Designer.cs">
+      <DependentUpon>CreateAppointmentInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\UpdateAppointmentInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Appointment\UpdateAppointmentInfoView.Designer.cs">
+      <DependentUpon>UpdateAppointmentInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\UpdateClientInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\UpdateClientInfoView.Designer.cs">
+      <DependentUpon>UpdateClientInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\CreateClientInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\CreateClientInfoView.Designer.cs">
+      <DependentUpon>CreateClientInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\CreateFlagInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\CreateFlagInfoView.Designer.cs">
+      <DependentUpon>CreateFlagInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\UpdateFlagInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\UpdateFlagInfoView.Designer.cs">
+      <DependentUpon>UpdateFlagInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientView.Designer.cs">
+      <DependentUpon>CreateHouseholdAndClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\UpdateDependantInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\UpdateDependantInfoView.Designer.cs">
+      <DependentUpon>UpdateDependantInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\CreateDependantInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\CreateDependantInfoView.Designer.cs">
+      <DependentUpon>CreateDependantInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\HouseholdAndClientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\HouseholdAndClientView.Designer.cs">
+      <DependentUpon>HouseholdAndClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientView.Designer.cs">
+      <DependentUpon>UpdateHouseholdAndClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdTabView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\HouseholdTabView.Designer.cs">
+      <DependentUpon>HouseholdTabView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\UpdateHouseholdInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\UpdateHouseholdInfoView.Designer.cs">
+      <DependentUpon>UpdateHouseholdInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\CreateHouseholdInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\CreateHouseholdInfoView.Designer.cs">
+      <DependentUpon>CreateHouseholdInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Income\IncomeInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Income\IncomeInfoView.Designer.cs">
+      <DependentUpon>IncomeInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\CreateNoteInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\CreateNoteInfoView.Designer.cs">
+      <DependentUpon>CreateNoteInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\UpdateNoteInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\UpdateNoteInfoView.Designer.cs">
+      <DependentUpon>UpdateNoteInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportConfirmationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportConfirmationView.Designer.cs">
+      <DependentUpon>ReportConfirmationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportDateRangeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportDateRangeView.Designer.cs">
+      <DependentUpon>ReportDateRangeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportDemographyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportDemographyView.Designer.cs">
+      <DependentUpon>ReportDemographyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportFoodBasket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportFoodBasket.Designer.cs">
+      <DependentUpon>ReportFoodBasket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportFoodBasketView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportFoodBasketView.Designer.cs">
+      <DependentUpon>ReportFoodBasketView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\Reports\ReportHeader.Designer.cs">
+      <DependentUpon>ReportHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\ReportTabView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ReportTab\ReportTabView.Designer.cs">
+      <DependentUpon>ReportTabView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\SearchTab\SearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\SearchTab\SearchView.designer.cs">
+      <DependentUpon>SearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingCRUDView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingCRUDView.Designer.cs">
+      <DependentUpon>SettingCRUDView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingCRUDViewDuo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingCRUDViewDuo.Designer.cs">
+      <DependentUpon>SettingCRUDViewDuo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingGeneralView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\SettingTab\SettingGeneralView.Designer.cs">
+      <DependentUpon>SettingGeneralView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\ClientInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Client\ClientInfoView.Designer.cs">
+      <DependentUpon>ClientInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\DetailDependantInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\DetailDependantInfoView.Designer.cs">
+      <DependentUpon>DetailDependantInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\DependantInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Dependant\DependantInfoView.Designer.cs">
+      <DependentUpon>DependantInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\FlagInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Flag\FlagInfoView.Designer.cs">
+      <DependentUpon>FlagInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\HouseholdInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Household\HouseholdInfoView.Designer.cs">
+      <DependentUpon>HouseholdInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\NoteInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\HouseholdTab\Note\NoteInfoView.Designer.cs">
+      <DependentUpon>NoteInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\HouseholdIncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Household\HouseholdIncomeForm.Designer.cs">
+      <DependentUpon>HouseholdIncomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\FormIndividualIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\HouseholdTab\Client\FormIndividualIncome.Designer.cs">
+      <DependentUpon>FormIndividualIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\SecurityAPI.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Forms\EventsTab\FormCreateEvent.resx">
+      <DependentUpon>FormCreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\EventsTab\FormUpdateEvent.resx">
+      <DependentUpon>FormUpdateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Appointment\CreateAppointmentForm.resx">
+      <DependentUpon>CreateAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Appointment\UpdateAppointmentForm.resx">
+      <DependentUpon>UpdateAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Client\UpdateClientForm.resx">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Client\CreateClientForm.resx">
+      <DependentUpon>CreateClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Dependant\UpdateDependantForm.resx">
+      <DependentUpon>UpdateDependantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Flag\CreateFlagForm.resx">
+      <DependentUpon>CreateFlagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Flag\UpdateFlagForm.resx">
+      <DependentUpon>UpdateFlagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientForm.resx">
+      <DependentUpon>CreateHouseholdAndClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Dependant\CreateDependantForm.resx">
+      <DependentUpon>CreateDependantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientForm.resx">
+      <DependentUpon>UpdateHouseholdAndClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Household\UpdateHouseholdForm.resx">
+      <DependentUpon>UpdateHouseholdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Household\CreateHouseholdForm.resx">
+      <DependentUpon>CreateHouseholdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Note\CreateNoteInfoForm.resx">
+      <DependentUpon>CreateNoteInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Note\UpdateNoteInfoForm.resx">
+      <DependentUpon>UpdateNoteInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ReportTab\FoodBasketReportForm.resx">
+      <DependentUpon>FoodBasketReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ReportTab\ReportDemographyForm.resx">
+      <DependentUpon>ReportDemographyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ReportTab\ReportFoodBasketForm.resx">
+      <DependentUpon>ReportFoodBasketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\SettingTab\AddEventTemplateForm.resx">
+      <DependentUpon>AddEventTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\SettingTab\SettingCRUDForm.resx">
+      <DependentUpon>SettingCRUDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\SettingTab\SettingCRUDFormDuo.resx">
+      <DependentUpon>SettingCRUDFormDuo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\EventsTab\EventsView.resx">
+      <DependentUpon>EventsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Appointment\AppointmentInfoView.resx">
+      <DependentUpon>AppointmentInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Appointment\CreateAppointmentInfoView.resx">
+      <DependentUpon>CreateAppointmentInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Appointment\UpdateAppointmentInfoView.resx">
+      <DependentUpon>UpdateAppointmentInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Client\UpdateClientInfoView.resx">
+      <DependentUpon>UpdateClientInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Client\CreateClientInfoView.resx">
+      <DependentUpon>CreateClientInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Flag\CreateFlagInfoView.resx">
+      <DependentUpon>CreateFlagInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Flag\UpdateFlagInfoView.resx">
+      <DependentUpon>UpdateFlagInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\HouseholdAndClient\CreateHouseholdAndClientView.resx">
+      <DependentUpon>CreateHouseholdAndClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Dependant\UpdateDependantInfoView.resx">
+      <DependentUpon>UpdateDependantInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Dependant\CreateDependantInfoView.resx">
+      <DependentUpon>CreateDependantInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\HouseholdAndClient\HouseholdAndClientView.resx">
+      <DependentUpon>HouseholdAndClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\HouseholdAndClient\UpdateHouseholdAndClientView.resx">
+      <DependentUpon>UpdateHouseholdAndClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\HouseholdTabView.resx">
+      <DependentUpon>HouseholdTabView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Household\CreateHouseholdInfoView.resx">
+      <DependentUpon>CreateHouseholdInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Household\UpdateHouseholdInfoView.resx">
+      <DependentUpon>UpdateHouseholdInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Income\IncomeInfoView.resx">
+      <DependentUpon>IncomeInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Note\CreateNoteInfoView.resx">
+      <DependentUpon>CreateNoteInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Note\UpdateNoteInfoView.resx">
+      <DependentUpon>UpdateNoteInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presenters\ReportTab\Statistical\ReportStatisticalPresenter.rdlc" />
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportConfirmationView.resx">
+      <DependentUpon>ReportConfirmationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportDateRangeView.resx">
+      <DependentUpon>ReportDateRangeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportDemographyView.resx">
+      <DependentUpon>ReportDemographyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportFoodBasket.resx">
+      <DependentUpon>ReportFoodBasket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportFoodBasketView.resx">
+      <DependentUpon>ReportFoodBasketView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\Reports\ReportHeader.resx">
+      <DependentUpon>ReportHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ReportTab\ReportTabView.resx">
+      <DependentUpon>ReportTabView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\SearchTab\SearchView.resx">
+      <DependentUpon>SearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\SettingTab\SettingCRUDView.resx">
+      <DependentUpon>SettingCRUDView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\SettingTab\SettingCRUDViewDuo.resx">
+      <DependentUpon>SettingCRUDViewDuo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\SettingTab\SettingGeneralView.resx">
+      <DependentUpon>SettingGeneralView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Client\ClientInfoView.resx">
+      <DependentUpon>ClientInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Dependant\DetailDependantInfoView.resx">
+      <DependentUpon>DetailDependantInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Dependant\DependantInfoView.resx">
+      <DependentUpon>DependantInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Flag\FlagInfoView.resx">
+      <DependentUpon>FlagInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Household\HouseholdInfoView.resx">
+      <DependentUpon>HouseholdInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\HouseholdTab\Note\NoteInfoView.resx">
+      <DependentUpon>NoteInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Household\HouseholdIncomeForm.resx">
+      <DependentUpon>HouseholdIncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\HouseholdTab\Client\FormIndividualIncome.resx">
+      <DependentUpon>FormIndividualIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\soen390EntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>soen390EntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Data\soen390EntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>soen390EntityModel.edmx</DependentUpon>
+      <LastGenOutput>soen390EntityModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Data\soen390EntityModel.edmx.diagram">
+      <DependentUpon>soen390EntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="Data\soen390EntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>soen390EntityModel.edmx</DependentUpon>
+      <LastGenOutput>soen390EntityModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.citizenship.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.client.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.dependant.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.eventtemplate.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.flag.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.flagtype.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.gender.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.household.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.incometype.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.maritalstatus.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.mothertongue.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.note.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.origin.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.region.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.servicelanguage.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.slot.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.slottemplate.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.soen390Entities.datasource" />
+    <None Include="Properties\DataSources\Prototype1_1.Data.workstatus.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-flag-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-dependandt-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-user-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-x-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-flag-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Presenters\HouseholdTab\Report\" />
+    <Folder Include="UI\Views\ReportTab\Reports\Statistical\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

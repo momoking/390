@@ -1,0 +1,26 @@
+
+use soen390;
+
+
+
+insert into event (name, description, periodic, eventperiodname, isTemplate, toDisplay) values 
+("food basket", "feeding the poor", true, "Bi-Weekly",false, true);
+
+insert into event (name, description, periodic, eventperiodname, isTemplate, toDisplay ) values 
+("legal council", "immigration guidance", true, "Weekly", false, true);
+
+insert into event (name, description, periodic, eventperiodname, isTemplate, toDisplay ) values 
+("legal council", "immigration guidance", true, "Weekly", true, true);
+
+insert into eventdate (eventid, startdate, enddate,  starttime, endtime, location) values 
+(1, "2013-03-10 00:00:00","2013-06-23 00:00:00", "1000-01-01 12:00:00", "1000-01-01 14:00:00", "hall");
+insert into eventdate (eventid, startdate, enddate, starttime, endtime, location) values 
+(2, "2013-03-11 00:00:00", "2013-06-24 00:00:00", "1000-01-01 09:00:00", "1000-01-01 14:00:00", "office");
+insert into eventdate (eventid, startdate, enddate, starttime, endtime, location) values 
+(2, "2013-03-12 00:00:00","2013-06-25 00:00:00", "1000-01-01 09:00:00", "1000-01-01 14:00:00", "office");
+
+insert into eventdate (eventid, startdate, enddate,  starttime, endtime, location) values 
+(3, "2013-03-10 00:00:00","2013-06-23 00:00:00", "1000-01-01 12:00:00", "1000-01-01 14:00:00", "hall");
+insert into eventdate (eventid, startdate, enddate, starttime, endtime, location) values 
+(3, "2013-03-12 00:00:00","2013-06-25 00:00:00", "1000-01-01 09:00:00", "1000-01-01 14:00:00", "office");
+select * from event e join eventdate ed where ed.eventid=e.eventid;

@@ -1,0 +1,1317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="soen390Model.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="soen390ModelStoreContainer">
+          <EntitySet Name="citizenship" EntityType="soen390Model.Store.citizenship" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="client" EntityType="soen390Model.Store.client" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="client_dependant" EntityType="soen390Model.Store.client_dependant" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="client_household" EntityType="soen390Model.Store.client_household" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="dependant" EntityType="soen390Model.Store.dependant" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="event" EntityType="soen390Model.Store.event" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="event_slot" EntityType="soen390Model.Store.event_slot" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="eventtemplate" EntityType="soen390Model.Store.eventtemplate" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="eventtemplate_slottemplate" EntityType="soen390Model.Store.eventtemplate_slottemplate" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="flag" EntityType="soen390Model.Store.flag" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="flagtype" EntityType="soen390Model.Store.flagtype" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="gender" EntityType="soen390Model.Store.gender" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="household" EntityType="soen390Model.Store.household" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="household_flag" EntityType="soen390Model.Store.household_flag" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="household_note" EntityType="soen390Model.Store.household_note" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="incometype" EntityType="soen390Model.Store.incometype" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="maritalstatus" EntityType="soen390Model.Store.maritalstatus" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="mothertongue" EntityType="soen390Model.Store.mothertongue" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="note" EntityType="soen390Model.Store.note" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="origin" EntityType="soen390Model.Store.origin" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="region" EntityType="soen390Model.Store.region" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="servicelanguage" EntityType="soen390Model.Store.servicelanguage" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="slot" EntityType="soen390Model.Store.slot" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="slot_household" EntityType="soen390Model.Store.slot_household" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="slottemplate" EntityType="soen390Model.Store.slottemplate" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <EntitySet Name="workstatus" EntityType="soen390Model.Store.workstatus" store:Type="Tables" Schema="gagxiaoc_soen390" />
+          <AssociationSet Name="fk_Client_Citizenship1" Association="soen390Model.Store.fk_Client_Citizenship1">
+            <End Role="citizenship" EntitySet="citizenship" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_Dependant_Client1" Association="soen390Model.Store.fk_Client_Dependant_Client1">
+            <End Role="client" EntitySet="client" />
+            <End Role="client_dependant" EntitySet="client_dependant" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_Dependant_Dependant1" Association="soen390Model.Store.fk_Client_Dependant_Dependant1">
+            <End Role="dependant" EntitySet="dependant" />
+            <End Role="client_dependant" EntitySet="client_dependant" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_MaritalStatus1" Association="soen390Model.Store.fk_Client_MaritalStatus1">
+            <End Role="maritalstatus" EntitySet="maritalstatus" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_MotherTongue1" Association="soen390Model.Store.fk_Client_MotherTongue1">
+            <End Role="mothertongue" EntitySet="mothertongue" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_Origin1" Association="soen390Model.Store.fk_Client_Origin1">
+            <End Role="origin" EntitySet="origin" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_ServiceLanguage1" Association="soen390Model.Store.fk_Client_ServiceLanguage1">
+            <End Role="servicelanguage" EntitySet="servicelanguage" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_WorkStatus1" Association="soen390Model.Store.fk_Client_WorkStatus1">
+            <End Role="workstatus" EntitySet="workstatus" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Dependant_Client" Association="soen390Model.Store.fk_Dependant_Client">
+            <End Role="client" EntitySet="client" />
+            <End Role="client_household" EntitySet="client_household" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Dependant_Household1" Association="soen390Model.Store.fk_Dependant_Household1">
+            <End Role="household" EntitySet="household" />
+            <End Role="client_household" EntitySet="client_household" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Dependant_WorkStatus1" Association="soen390Model.Store.fk_Dependant_WorkStatus1">
+            <End Role="workstatus" EntitySet="workstatus" />
+            <End Role="dependant" EntitySet="dependant" />
+          </AssociationSet>
+          <AssociationSet Name="fk_event_has_slot_event1" Association="soen390Model.Store.fk_event_has_slot_event1">
+            <End Role="event" EntitySet="event" />
+            <End Role="event_slot" EntitySet="event_slot" />
+          </AssociationSet>
+          <AssociationSet Name="fk_event_has_slot_slot1" Association="soen390Model.Store.fk_event_has_slot_slot1">
+            <End Role="slot" EntitySet="slot" />
+            <End Role="event_slot" EntitySet="event_slot" />
+          </AssociationSet>
+          <AssociationSet Name="fk_eventtemplate_has_slottemplate_eventtemplate1" Association="soen390Model.Store.fk_eventtemplate_has_slottemplate_eventtemplate1">
+            <End Role="eventtemplate" EntitySet="eventtemplate" />
+            <End Role="eventtemplate_slottemplate" EntitySet="eventtemplate_slottemplate" />
+          </AssociationSet>
+          <AssociationSet Name="fk_eventtemplate_has_slottemplate_slottemplate1" Association="soen390Model.Store.fk_eventtemplate_has_slottemplate_slottemplate1">
+            <End Role="slottemplate" EntitySet="slottemplate" />
+            <End Role="eventtemplate_slottemplate" EntitySet="eventtemplate_slottemplate" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Flag_FlagType1" Association="soen390Model.Store.fk_Flag_FlagType1">
+            <End Role="flagtype" EntitySet="flagtype" />
+            <End Role="flag" EntitySet="flag" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Household_Flag_Flag1" Association="soen390Model.Store.fk_Household_Flag_Flag1">
+            <End Role="flag" EntitySet="flag" />
+            <End Role="household_flag" EntitySet="household_flag" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Household_Flag_Household1" Association="soen390Model.Store.fk_Household_Flag_Household1">
+            <End Role="household" EntitySet="household" />
+            <End Role="household_flag" EntitySet="household_flag" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Household_Note_Household1" Association="soen390Model.Store.fk_Household_Note_Household1">
+            <End Role="household" EntitySet="household" />
+            <End Role="household_note" EntitySet="household_note" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Household_Note_Note1" Association="soen390Model.Store.fk_Household_Note_Note1">
+            <End Role="note" EntitySet="note" />
+            <End Role="household_note" EntitySet="household_note" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Slot_Household_Household1" Association="soen390Model.Store.fk_Slot_Household_Household1">
+            <End Role="household" EntitySet="household" />
+            <End Role="slot_household" EntitySet="slot_household" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Slot_Household_Slot1" Association="soen390Model.Store.fk_Slot_Household_Slot1">
+            <End Role="slot" EntitySet="slot" />
+            <End Role="slot_household" EntitySet="slot_household" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="citizenship">
+          <Key>
+            <PropertyRef Name="CitizenshipName" />
+          </Key>
+          <Property Name="CitizenshipName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="DoB" Type="date" />
+          <Property Name="Medicare" Type="varchar" MaxLength="45" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Origin" Type="varchar" MaxLength="45" />
+          <Property Name="Citizenship" Type="varchar" MaxLength="45" />
+          <Property Name="MotherTongue" Type="varchar" MaxLength="45" />
+          <Property Name="ServiceLanguage" Type="varchar" MaxLength="32" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="45" />
+          <Property Name="WorkStatus" Type="varchar" MaxLength="24" />
+          <Property Name="AnnualIncome" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Referral" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ReasonForServiceUsage" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="WelfareNumber" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="client_dependant">
+          <Key>
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="DependantID" />
+          </Key>
+          <Property Name="ClientID" Type="uint" Nullable="false" />
+          <Property Name="DependantID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client_household">
+          <Key>
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="HouseholdID" />
+          </Key>
+          <Property Name="ClientID" Type="uint" Nullable="false" />
+          <Property Name="HouseholdID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dependant">
+          <Key>
+            <PropertyRef Name="DependantID" />
+          </Key>
+          <Property Name="DependantID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="45" />
+          <Property Name="LastName" Type="varchar" MaxLength="45" />
+          <Property Name="Medicare" Type="varchar" MaxLength="45" />
+          <Property Name="Gender" Type="varchar" MaxLength="1" />
+          <Property Name="WorkStatus" Type="varchar" MaxLength="45" />
+          <Property Name="WelfareNumber" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="Location" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="45" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="EventPeriod" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="event_slot">
+          <Key>
+            <PropertyRef Name="event_EventID" />
+            <PropertyRef Name="slot_SlotID" />
+          </Key>
+          <Property Name="event_EventID" Type="uint" Nullable="false" />
+          <Property Name="slot_SlotID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eventtemplate">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="Location" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="45" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="EventPeriod" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="eventtemplate_slottemplate">
+          <Key>
+            <PropertyRef Name="eventtemplate_EventID" />
+            <PropertyRef Name="slottemplate_SlotID" />
+          </Key>
+          <Property Name="eventtemplate_EventID" Type="uint" Nullable="false" />
+          <Property Name="slottemplate_SlotID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="flag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FlagTypeID" Type="uint" />
+          <Property Name="FlagInfo" Type="text" />
+          <Property Name="DateStamp" Type="date" />
+        </EntityType>
+        <EntityType Name="flagtype">
+          <Key>
+            <PropertyRef Name="FlagID" />
+          </Key>
+          <Property Name="FlagID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FlagTitle" Type="varchar" MaxLength="45" />
+          <Property Name="FlagPriority" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="GenderName" />
+          </Key>
+          <Property Name="GenderName" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="household">
+          <Key>
+            <PropertyRef Name="HouseholdID" />
+          </Key>
+          <Property Name="HouseholdID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StreetNumber" Type="varchar" MaxLength="256" />
+          <Property Name="StreetName" Type="varchar" MaxLength="45" />
+          <Property Name="AppartmentNumber" Type="varchar" MaxLength="5" />
+          <Property Name="PostalCode" Type="char" MaxLength="6" />
+          <Property Name="Region" Type="varchar" MaxLength="45" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="45" />
+          <Property Name="FirstVisit" Type="date" />
+          <Property Name="LastUpdate" Type="date" />
+          <Property Name="NextUpdate" Type="date" />
+          <Property Name="HouseholdIncome" Type="decimal" Precision="11" Scale="2" />
+        </EntityType>
+        <EntityType Name="household_flag">
+          <Key>
+            <PropertyRef Name="HouseholdID" />
+            <PropertyRef Name="FlagID" />
+          </Key>
+          <Property Name="HouseholdID" Type="uint" Nullable="false" />
+          <Property Name="FlagID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="household_note">
+          <Key>
+            <PropertyRef Name="HouseholdID" />
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="HouseholdID" Type="uint" Nullable="false" />
+          <Property Name="NoteID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incometype">
+          <Key>
+            <PropertyRef Name="IncomeTypeName" />
+          </Key>
+          <Property Name="IncomeTypeName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="maritalstatus">
+          <Key>
+            <PropertyRef Name="MaritalStatusName" />
+          </Key>
+          <Property Name="MaritalStatusName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="mothertongue">
+          <Key>
+            <PropertyRef Name="LanguageName" />
+          </Key>
+          <Property Name="LanguageName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NoteInfo" Type="text" />
+          <Property Name="DateStamp" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="origin">
+          <Key>
+            <PropertyRef Name="OriginName" />
+          </Key>
+          <Property Name="OriginName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="ForwardSortationArea" />
+          </Key>
+          <Property Name="ForwardSortationArea" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="RegionName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="servicelanguage">
+          <Key>
+            <PropertyRef Name="LanguageName" />
+          </Key>
+          <Property Name="LanguageName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="slot">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="uint" />
+          <Property Name="Booked" Type="uint" />
+          <Property Name="Duration" Type="uint" />
+          <Property Name="StartTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="slot_household">
+          <Key>
+            <PropertyRef Name="SlotID" />
+            <PropertyRef Name="HouseholdID" />
+          </Key>
+          <Property Name="SlotID" Type="uint" Nullable="false" />
+          <Property Name="HouseholdID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="slottemplate">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="uint" />
+          <Property Name="Booked" Type="uint" />
+          <Property Name="Duration" Type="uint" />
+          <Property Name="StartTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="workstatus">
+          <Key>
+            <PropertyRef Name="WorkStatusName" />
+          </Key>
+          <Property Name="WorkStatusName" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <Association Name="fk_Client_Citizenship1">
+          <End Role="citizenship" Type="soen390Model.Store.citizenship" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="citizenship">
+              <PropertyRef Name="CitizenshipName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="Citizenship" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_Dependant_Client1">
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="1" />
+          <End Role="client_dependant" Type="soen390Model.Store.client_dependant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="client_dependant">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_Dependant_Dependant1">
+          <End Role="dependant" Type="soen390Model.Store.dependant" Multiplicity="1" />
+          <End Role="client_dependant" Type="soen390Model.Store.client_dependant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dependant">
+              <PropertyRef Name="DependantID" />
+            </Principal>
+            <Dependent Role="client_dependant">
+              <PropertyRef Name="DependantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_MaritalStatus1">
+          <End Role="maritalstatus" Type="soen390Model.Store.maritalstatus" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maritalstatus">
+              <PropertyRef Name="MaritalStatusName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="MaritalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_MotherTongue1">
+          <End Role="mothertongue" Type="soen390Model.Store.mothertongue" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mothertongue">
+              <PropertyRef Name="LanguageName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="MotherTongue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_Origin1">
+          <End Role="origin" Type="soen390Model.Store.origin" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="origin">
+              <PropertyRef Name="OriginName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="Origin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_ServiceLanguage1">
+          <End Role="servicelanguage" Type="soen390Model.Store.servicelanguage" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="servicelanguage">
+              <PropertyRef Name="LanguageName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="ServiceLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_WorkStatus1">
+          <End Role="workstatus" Type="soen390Model.Store.workstatus" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workstatus">
+              <PropertyRef Name="WorkStatusName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="WorkStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Dependant_Client">
+          <End Role="client" Type="soen390Model.Store.client" Multiplicity="1" />
+          <End Role="client_household" Type="soen390Model.Store.client_household" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="client_household">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Dependant_Household1">
+          <End Role="household" Type="soen390Model.Store.household" Multiplicity="1" />
+          <End Role="client_household" Type="soen390Model.Store.client_household" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="household">
+              <PropertyRef Name="HouseholdID" />
+            </Principal>
+            <Dependent Role="client_household">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Dependant_WorkStatus1">
+          <End Role="workstatus" Type="soen390Model.Store.workstatus" Multiplicity="0..1" />
+          <End Role="dependant" Type="soen390Model.Store.dependant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workstatus">
+              <PropertyRef Name="WorkStatusName" />
+            </Principal>
+            <Dependent Role="dependant">
+              <PropertyRef Name="WorkStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_event_has_slot_event1">
+          <End Role="event" Type="soen390Model.Store.event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="event_slot" Type="soen390Model.Store.event_slot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="event_slot">
+              <PropertyRef Name="event_EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_event_has_slot_slot1">
+          <End Role="slot" Type="soen390Model.Store.slot" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="event_slot" Type="soen390Model.Store.event_slot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="slot">
+              <PropertyRef Name="SlotID" />
+            </Principal>
+            <Dependent Role="event_slot">
+              <PropertyRef Name="slot_SlotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_eventtemplate_has_slottemplate_eventtemplate1">
+          <End Role="eventtemplate" Type="soen390Model.Store.eventtemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventtemplate_slottemplate" Type="soen390Model.Store.eventtemplate_slottemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eventtemplate">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="eventtemplate_slottemplate">
+              <PropertyRef Name="eventtemplate_EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_eventtemplate_has_slottemplate_slottemplate1">
+          <End Role="slottemplate" Type="soen390Model.Store.slottemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventtemplate_slottemplate" Type="soen390Model.Store.eventtemplate_slottemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="slottemplate">
+              <PropertyRef Name="SlotID" />
+            </Principal>
+            <Dependent Role="eventtemplate_slottemplate">
+              <PropertyRef Name="slottemplate_SlotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Flag_FlagType1">
+          <End Role="flagtype" Type="soen390Model.Store.flagtype" Multiplicity="0..1" />
+          <End Role="flag" Type="soen390Model.Store.flag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flagtype">
+              <PropertyRef Name="FlagID" />
+            </Principal>
+            <Dependent Role="flag">
+              <PropertyRef Name="FlagTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Household_Flag_Flag1">
+          <End Role="flag" Type="soen390Model.Store.flag" Multiplicity="1" />
+          <End Role="household_flag" Type="soen390Model.Store.household_flag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flag">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="household_flag">
+              <PropertyRef Name="FlagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Household_Flag_Household1">
+          <End Role="household" Type="soen390Model.Store.household" Multiplicity="1" />
+          <End Role="household_flag" Type="soen390Model.Store.household_flag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="household">
+              <PropertyRef Name="HouseholdID" />
+            </Principal>
+            <Dependent Role="household_flag">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Household_Note_Household1">
+          <End Role="household" Type="soen390Model.Store.household" Multiplicity="1" />
+          <End Role="household_note" Type="soen390Model.Store.household_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="household">
+              <PropertyRef Name="HouseholdID" />
+            </Principal>
+            <Dependent Role="household_note">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Household_Note_Note1">
+          <End Role="note" Type="soen390Model.Store.note" Multiplicity="1" />
+          <End Role="household_note" Type="soen390Model.Store.household_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="note">
+              <PropertyRef Name="NoteID" />
+            </Principal>
+            <Dependent Role="household_note">
+              <PropertyRef Name="NoteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Slot_Household_Household1">
+          <End Role="household" Type="soen390Model.Store.household" Multiplicity="1" />
+          <End Role="slot_household" Type="soen390Model.Store.slot_household" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="household">
+              <PropertyRef Name="HouseholdID" />
+            </Principal>
+            <Dependent Role="slot_household">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Slot_Household_Slot1">
+          <End Role="slot" Type="soen390Model.Store.slot" Multiplicity="1" />
+          <End Role="slot_household" Type="soen390Model.Store.slot_household" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="slot">
+              <PropertyRef Name="SlotID" />
+            </Principal>
+            <Dependent Role="slot_household">
+              <PropertyRef Name="SlotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="soen390Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="soen390Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="citizenship" EntityType="soen390Model.citizenship" />
+          <EntitySet Name="client" EntityType="soen390Model.client" />
+          <EntitySet Name="dependant" EntityType="soen390Model.dependant" />
+          <EntitySet Name="event" EntityType="soen390Model.event" />
+          <EntitySet Name="eventtemplate" EntityType="soen390Model.eventtemplate" />
+          <EntitySet Name="flag" EntityType="soen390Model.flag" />
+          <EntitySet Name="flagtype" EntityType="soen390Model.flagtype" />
+          <EntitySet Name="gender" EntityType="soen390Model.gender" />
+          <EntitySet Name="household" EntityType="soen390Model.household" />
+          <EntitySet Name="incometype" EntityType="soen390Model.incometype" />
+          <EntitySet Name="maritalstatus" EntityType="soen390Model.maritalstatus" />
+          <EntitySet Name="mothertongue" EntityType="soen390Model.mothertongue" />
+          <EntitySet Name="note" EntityType="soen390Model.note" />
+          <EntitySet Name="origin" EntityType="soen390Model.origin" />
+          <EntitySet Name="region" EntityType="soen390Model.region" />
+          <EntitySet Name="servicelanguage" EntityType="soen390Model.servicelanguage" />
+          <EntitySet Name="slot" EntityType="soen390Model.slot" />
+          <EntitySet Name="slottemplate" EntityType="soen390Model.slottemplate" />
+          <EntitySet Name="workstatus" EntityType="soen390Model.workstatus" />
+          <AssociationSet Name="fk_Client_Citizenship1" Association="soen390Model.fk_Client_Citizenship1">
+            <End Role="citizenship" EntitySet="citizenship" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_MaritalStatus1" Association="soen390Model.fk_Client_MaritalStatus1">
+            <End Role="maritalstatus" EntitySet="maritalstatus" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_MotherTongue1" Association="soen390Model.fk_Client_MotherTongue1">
+            <End Role="mothertongue" EntitySet="mothertongue" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_Origin1" Association="soen390Model.fk_Client_Origin1">
+            <End Role="origin" EntitySet="origin" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_ServiceLanguage1" Association="soen390Model.fk_Client_ServiceLanguage1">
+            <End Role="servicelanguage" EntitySet="servicelanguage" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Client_WorkStatus1" Association="soen390Model.fk_Client_WorkStatus1">
+            <End Role="workstatus" EntitySet="workstatus" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Dependant_WorkStatus1" Association="soen390Model.fk_Dependant_WorkStatus1">
+            <End Role="workstatus" EntitySet="workstatus" />
+            <End Role="dependant" EntitySet="dependant" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Flag_FlagType1" Association="soen390Model.fk_Flag_FlagType1">
+            <End Role="flagtype" EntitySet="flagtype" />
+            <End Role="flag" EntitySet="flag" />
+          </AssociationSet>
+          <AssociationSet Name="client_dependant" Association="soen390Model.client_dependant">
+            <End Role="client" EntitySet="client" />
+            <End Role="dependant" EntitySet="dependant" />
+          </AssociationSet>
+          <AssociationSet Name="client_household" Association="soen390Model.client_household">
+            <End Role="client" EntitySet="client" />
+            <End Role="household" EntitySet="household" />
+          </AssociationSet>
+          <AssociationSet Name="event_slot" Association="soen390Model.event_slot">
+            <End Role="event" EntitySet="event" />
+            <End Role="slot" EntitySet="slot" />
+          </AssociationSet>
+          <AssociationSet Name="eventtemplate_slottemplate" Association="soen390Model.eventtemplate_slottemplate">
+            <End Role="eventtemplate" EntitySet="eventtemplate" />
+            <End Role="slottemplate" EntitySet="slottemplate" />
+          </AssociationSet>
+          <AssociationSet Name="household_flag" Association="soen390Model.household_flag">
+            <End Role="flag" EntitySet="flag" />
+            <End Role="household" EntitySet="household" />
+          </AssociationSet>
+          <AssociationSet Name="household_note" Association="soen390Model.household_note">
+            <End Role="household" EntitySet="household" />
+            <End Role="note" EntitySet="note" />
+          </AssociationSet>
+          <AssociationSet Name="slot_household" Association="soen390Model.slot_household">
+            <End Role="household" EntitySet="household" />
+            <End Role="slot" EntitySet="slot" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="citizenship">
+          <Key>
+            <PropertyRef Name="CitizenshipName" />
+          </Key>
+          <Property Name="CitizenshipName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_Citizenship1" FromRole="citizenship" ToRole="client" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="DoB" Type="DateTime" Precision="0" />
+          <Property Name="Medicare" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Origin" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Citizenship" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="MotherTongue" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ServiceLanguage" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="WorkStatus" Type="String" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="AnnualIncome" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Referral" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ReasonForServiceUsage" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="WelfareNumber" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="citizenship1" Relationship="soen390Model.fk_Client_Citizenship1" FromRole="client" ToRole="citizenship" />
+          <NavigationProperty Name="maritalstatus1" Relationship="soen390Model.fk_Client_MaritalStatus1" FromRole="client" ToRole="maritalstatus" />
+          <NavigationProperty Name="mothertongue1" Relationship="soen390Model.fk_Client_MotherTongue1" FromRole="client" ToRole="mothertongue" />
+          <NavigationProperty Name="origin1" Relationship="soen390Model.fk_Client_Origin1" FromRole="client" ToRole="origin" />
+          <NavigationProperty Name="servicelanguage1" Relationship="soen390Model.fk_Client_ServiceLanguage1" FromRole="client" ToRole="servicelanguage" />
+          <NavigationProperty Name="workstatus1" Relationship="soen390Model.fk_Client_WorkStatus1" FromRole="client" ToRole="workstatus" />
+          <NavigationProperty Name="dependant" Relationship="soen390Model.client_dependant" FromRole="client" ToRole="dependant" />
+          <NavigationProperty Name="household" Relationship="soen390Model.client_household" FromRole="client" ToRole="household" />
+        </EntityType>
+        <EntityType Name="dependant">
+          <Key>
+            <PropertyRef Name="DependantID" />
+          </Key>
+          <Property Name="DependantID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Medicare" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="WorkStatus" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="WelfareNumber" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="workstatus1" Relationship="soen390Model.fk_Dependant_WorkStatus1" FromRole="dependant" ToRole="workstatus" />
+          <NavigationProperty Name="client" Relationship="soen390Model.client_dependant" FromRole="dependant" ToRole="client" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Location" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Precision="0" />
+          <Property Name="End" Type="DateTime" Precision="0" />
+          <Property Name="EventPeriod" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="slot" Relationship="soen390Model.event_slot" FromRole="event" ToRole="slot" />
+        </EntityType>
+        <EntityType Name="eventtemplate">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Location" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" Precision="0" />
+          <Property Name="End" Type="DateTime" Precision="0" />
+          <Property Name="EventPeriod" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="slottemplate" Relationship="soen390Model.eventtemplate_slottemplate" FromRole="eventtemplate" ToRole="slottemplate" />
+        </EntityType>
+        <EntityType Name="flag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FlagTypeID" Type="Int64" />
+          <Property Name="FlagInfo" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="DateStamp" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="flagtype" Relationship="soen390Model.fk_Flag_FlagType1" FromRole="flag" ToRole="flagtype" />
+          <NavigationProperty Name="household" Relationship="soen390Model.household_flag" FromRole="flag" ToRole="household" />
+        </EntityType>
+        <EntityType Name="flagtype">
+          <Key>
+            <PropertyRef Name="FlagID" />
+          </Key>
+          <Property Name="FlagID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FlagTitle" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="FlagPriority" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="flag" Relationship="soen390Model.fk_Flag_FlagType1" FromRole="flagtype" ToRole="flag" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="GenderName" />
+          </Key>
+          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="household">
+          <Key>
+            <PropertyRef Name="HouseholdID" />
+          </Key>
+          <Property Name="HouseholdID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StreetNumber" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="StreetName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="AppartmentNumber" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="Region" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="FirstVisit" Type="DateTime" Precision="0" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="0" />
+          <Property Name="NextUpdate" Type="DateTime" Precision="0" />
+          <Property Name="HouseholdIncome" Type="Decimal" Precision="11" Scale="2" />
+          <NavigationProperty Name="client" Relationship="soen390Model.client_household" FromRole="household" ToRole="client" />
+          <NavigationProperty Name="flag" Relationship="soen390Model.household_flag" FromRole="household" ToRole="flag" />
+          <NavigationProperty Name="note" Relationship="soen390Model.household_note" FromRole="household" ToRole="note" />
+          <NavigationProperty Name="slot" Relationship="soen390Model.slot_household" FromRole="household" ToRole="slot" />
+        </EntityType>
+        <EntityType Name="incometype">
+          <Key>
+            <PropertyRef Name="IncomeTypeName" />
+          </Key>
+          <Property Name="IncomeTypeName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="maritalstatus">
+          <Key>
+            <PropertyRef Name="MaritalStatusName" />
+          </Key>
+          <Property Name="MaritalStatusName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_MaritalStatus1" FromRole="maritalstatus" ToRole="client" />
+        </EntityType>
+        <EntityType Name="mothertongue">
+          <Key>
+            <PropertyRef Name="LanguageName" />
+          </Key>
+          <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_MotherTongue1" FromRole="mothertongue" ToRole="client" />
+        </EntityType>
+        <EntityType Name="note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteInfo" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="DateStamp" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="household" Relationship="soen390Model.household_note" FromRole="note" ToRole="household" />
+        </EntityType>
+        <EntityType Name="origin">
+          <Key>
+            <PropertyRef Name="OriginName" />
+          </Key>
+          <Property Name="OriginName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_Origin1" FromRole="origin" ToRole="client" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="ForwardSortationArea" />
+          </Key>
+          <Property Name="ForwardSortationArea" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="RegionName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="servicelanguage">
+          <Key>
+            <PropertyRef Name="LanguageName" />
+          </Key>
+          <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_ServiceLanguage1" FromRole="servicelanguage" ToRole="client" />
+        </EntityType>
+        <EntityType Name="slot">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="Int64" />
+          <Property Name="Booked" Type="Int64" />
+          <Property Name="Duration" Type="Int64" />
+          <Property Name="StartTime" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="event" Relationship="soen390Model.event_slot" FromRole="slot" ToRole="event" />
+          <NavigationProperty Name="household" Relationship="soen390Model.slot_household" FromRole="slot" ToRole="household" />
+        </EntityType>
+        <EntityType Name="slottemplate">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="Int64" />
+          <Property Name="Booked" Type="Int64" />
+          <Property Name="Duration" Type="Int64" />
+          <Property Name="StartTime" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="eventtemplate" Relationship="soen390Model.eventtemplate_slottemplate" FromRole="slottemplate" ToRole="eventtemplate" />
+        </EntityType>
+        <EntityType Name="workstatus">
+          <Key>
+            <PropertyRef Name="WorkStatusName" />
+          </Key>
+          <Property Name="WorkStatusName" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="client" Relationship="soen390Model.fk_Client_WorkStatus1" FromRole="workstatus" ToRole="client" />
+          <NavigationProperty Name="dependant" Relationship="soen390Model.fk_Dependant_WorkStatus1" FromRole="workstatus" ToRole="dependant" />
+        </EntityType>
+        <Association Name="fk_Client_Citizenship1">
+          <End Role="citizenship" Type="soen390Model.citizenship" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="citizenship">
+              <PropertyRef Name="CitizenshipName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="Citizenship" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_MaritalStatus1">
+          <End Role="maritalstatus" Type="soen390Model.maritalstatus" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maritalstatus">
+              <PropertyRef Name="MaritalStatusName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="MaritalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_MotherTongue1">
+          <End Role="mothertongue" Type="soen390Model.mothertongue" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mothertongue">
+              <PropertyRef Name="LanguageName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="MotherTongue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_Origin1">
+          <End Role="origin" Type="soen390Model.origin" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="origin">
+              <PropertyRef Name="OriginName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="Origin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_ServiceLanguage1">
+          <End Role="servicelanguage" Type="soen390Model.servicelanguage" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="servicelanguage">
+              <PropertyRef Name="LanguageName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="ServiceLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Client_WorkStatus1">
+          <End Role="workstatus" Type="soen390Model.workstatus" Multiplicity="0..1" />
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workstatus">
+              <PropertyRef Name="WorkStatusName" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="WorkStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Dependant_WorkStatus1">
+          <End Role="workstatus" Type="soen390Model.workstatus" Multiplicity="0..1" />
+          <End Role="dependant" Type="soen390Model.dependant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workstatus">
+              <PropertyRef Name="WorkStatusName" />
+            </Principal>
+            <Dependent Role="dependant">
+              <PropertyRef Name="WorkStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Flag_FlagType1">
+          <End Role="flagtype" Type="soen390Model.flagtype" Multiplicity="0..1" />
+          <End Role="flag" Type="soen390Model.flag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flagtype">
+              <PropertyRef Name="FlagID" />
+            </Principal>
+            <Dependent Role="flag">
+              <PropertyRef Name="FlagTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="client_dependant">
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <End Role="dependant" Type="soen390Model.dependant" Multiplicity="*" />
+        </Association>
+        <Association Name="client_household">
+          <End Role="client" Type="soen390Model.client" Multiplicity="*" />
+          <End Role="household" Type="soen390Model.household" Multiplicity="*" />
+        </Association>
+        <Association Name="event_slot">
+          <End Role="event" Type="soen390Model.event" Multiplicity="*" />
+          <End Role="slot" Type="soen390Model.slot" Multiplicity="*" />
+        </Association>
+        <Association Name="eventtemplate_slottemplate">
+          <End Role="eventtemplate" Type="soen390Model.eventtemplate" Multiplicity="*" />
+          <End Role="slottemplate" Type="soen390Model.slottemplate" Multiplicity="*" />
+        </Association>
+        <Association Name="household_flag">
+          <End Role="flag" Type="soen390Model.flag" Multiplicity="*" />
+          <End Role="household" Type="soen390Model.household" Multiplicity="*" />
+        </Association>
+        <Association Name="household_note">
+          <End Role="household" Type="soen390Model.household" Multiplicity="*" />
+          <End Role="note" Type="soen390Model.note" Multiplicity="*" />
+        </Association>
+        <Association Name="slot_household">
+          <End Role="household" Type="soen390Model.household" Multiplicity="*" />
+          <End Role="slot" Type="soen390Model.slot" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="soen390ModelStoreContainer" CdmEntityContainer="soen390Entities">
+          <EntitySetMapping Name="citizenship">
+            <EntityTypeMapping TypeName="soen390Model.citizenship">
+              <MappingFragment StoreEntitySet="citizenship">
+                <ScalarProperty Name="CitizenshipName" ColumnName="CitizenshipName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="soen390Model.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Medicare" ColumnName="Medicare" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+                <ScalarProperty Name="MotherTongue" ColumnName="MotherTongue" />
+                <ScalarProperty Name="ServiceLanguage" ColumnName="ServiceLanguage" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="WorkStatus" ColumnName="WorkStatus" />
+                <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+                <ScalarProperty Name="Referral" ColumnName="Referral" />
+                <ScalarProperty Name="ReasonForServiceUsage" ColumnName="ReasonForServiceUsage" />
+                <ScalarProperty Name="WelfareNumber" ColumnName="WelfareNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dependant">
+            <EntityTypeMapping TypeName="soen390Model.dependant">
+              <MappingFragment StoreEntitySet="dependant">
+                <ScalarProperty Name="DependantID" ColumnName="DependantID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Medicare" ColumnName="Medicare" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="WorkStatus" ColumnName="WorkStatus" />
+                <ScalarProperty Name="WelfareNumber" ColumnName="WelfareNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event">
+            <EntityTypeMapping TypeName="soen390Model.event">
+              <MappingFragment StoreEntitySet="event">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="EventPeriod" ColumnName="EventPeriod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventtemplate">
+            <EntityTypeMapping TypeName="soen390Model.eventtemplate">
+              <MappingFragment StoreEntitySet="eventtemplate">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="EventPeriod" ColumnName="EventPeriod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flag">
+            <EntityTypeMapping TypeName="soen390Model.flag">
+              <MappingFragment StoreEntitySet="flag">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FlagTypeID" ColumnName="FlagTypeID" />
+                <ScalarProperty Name="FlagInfo" ColumnName="FlagInfo" />
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flagtype">
+            <EntityTypeMapping TypeName="soen390Model.flagtype">
+              <MappingFragment StoreEntitySet="flagtype">
+                <ScalarProperty Name="FlagID" ColumnName="FlagID" />
+                <ScalarProperty Name="FlagTitle" ColumnName="FlagTitle" />
+                <ScalarProperty Name="FlagPriority" ColumnName="FlagPriority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gender">
+            <EntityTypeMapping TypeName="soen390Model.gender">
+              <MappingFragment StoreEntitySet="gender">
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="household">
+            <EntityTypeMapping TypeName="soen390Model.household">
+              <MappingFragment StoreEntitySet="household">
+                <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+                <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="AppartmentNumber" ColumnName="AppartmentNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FirstVisit" ColumnName="FirstVisit" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
+                <ScalarProperty Name="HouseholdIncome" ColumnName="HouseholdIncome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incometype">
+            <EntityTypeMapping TypeName="soen390Model.incometype">
+              <MappingFragment StoreEntitySet="incometype">
+                <ScalarProperty Name="IncomeTypeName" ColumnName="IncomeTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="maritalstatus">
+            <EntityTypeMapping TypeName="soen390Model.maritalstatus">
+              <MappingFragment StoreEntitySet="maritalstatus">
+                <ScalarProperty Name="MaritalStatusName" ColumnName="MaritalStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mothertongue">
+            <EntityTypeMapping TypeName="soen390Model.mothertongue">
+              <MappingFragment StoreEntitySet="mothertongue">
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="note">
+            <EntityTypeMapping TypeName="soen390Model.note">
+              <MappingFragment StoreEntitySet="note">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="NoteInfo" ColumnName="NoteInfo" />
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="origin">
+            <EntityTypeMapping TypeName="soen390Model.origin">
+              <MappingFragment StoreEntitySet="origin">
+                <ScalarProperty Name="OriginName" ColumnName="OriginName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="region">
+            <EntityTypeMapping TypeName="soen390Model.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="ForwardSortationArea" ColumnName="ForwardSortationArea" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servicelanguage">
+            <EntityTypeMapping TypeName="soen390Model.servicelanguage">
+              <MappingFragment StoreEntitySet="servicelanguage">
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="slot">
+            <EntityTypeMapping TypeName="soen390Model.slot">
+              <MappingFragment StoreEntitySet="slot">
+                <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Booked" ColumnName="Booked" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="slottemplate">
+            <EntityTypeMapping TypeName="soen390Model.slottemplate">
+              <MappingFragment StoreEntitySet="slottemplate">
+                <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Booked" ColumnName="Booked" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workstatus">
+            <EntityTypeMapping TypeName="soen390Model.workstatus">
+              <MappingFragment StoreEntitySet="workstatus">
+                <ScalarProperty Name="WorkStatusName" ColumnName="WorkStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="client_dependant" TypeName="soen390Model.client_dependant" StoreEntitySet="client_dependant">
+            <EndProperty Name="client">
+              <ScalarProperty Name="ID" ColumnName="ClientID" />
+            </EndProperty>
+            <EndProperty Name="dependant">
+              <ScalarProperty Name="DependantID" ColumnName="DependantID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="client_household" TypeName="soen390Model.client_household" StoreEntitySet="client_household">
+            <EndProperty Name="client">
+              <ScalarProperty Name="ID" ColumnName="ClientID" />
+            </EndProperty>
+            <EndProperty Name="household">
+              <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="event_slot" TypeName="soen390Model.event_slot" StoreEntitySet="event_slot">
+            <EndProperty Name="event">
+              <ScalarProperty Name="EventID" ColumnName="event_EventID" />
+            </EndProperty>
+            <EndProperty Name="slot">
+              <ScalarProperty Name="SlotID" ColumnName="slot_SlotID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="eventtemplate_slottemplate" TypeName="soen390Model.eventtemplate_slottemplate" StoreEntitySet="eventtemplate_slottemplate">
+            <EndProperty Name="eventtemplate">
+              <ScalarProperty Name="EventID" ColumnName="eventtemplate_EventID" />
+            </EndProperty>
+            <EndProperty Name="slottemplate">
+              <ScalarProperty Name="SlotID" ColumnName="slottemplate_SlotID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="household_flag" TypeName="soen390Model.household_flag" StoreEntitySet="household_flag">
+            <EndProperty Name="flag">
+              <ScalarProperty Name="ID" ColumnName="FlagID" />
+            </EndProperty>
+            <EndProperty Name="household">
+              <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="household_note" TypeName="soen390Model.household_note" StoreEntitySet="household_note">
+            <EndProperty Name="household">
+              <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+            </EndProperty>
+            <EndProperty Name="note">
+              <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="slot_household" TypeName="soen390Model.slot_household" StoreEntitySet="slot_household">
+            <EndProperty Name="household">
+              <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+            </EndProperty>
+            <EndProperty Name="slot">
+              <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
